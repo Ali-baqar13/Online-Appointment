@@ -1,0 +1,39 @@
+.sticky_header{
+    width: 100px;
+    height: 80px;
+    line-height: 80px;
+    position: sticky;
+    top: 0;
+    left:0;
+    z-index: 99999;
+    background: white;
+    box-shadow: 3px 3px -8px 3px #ddd;
+}
+
+@media only screen and (max-width:1024px){
+    .navigation{
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        top:0;
+        left:0;
+        z-index: 100;
+        background: #000084;
+
+    }
+    .menu{
+        width: 15rem;
+        height: 100px;
+        position :absolute;
+        top:0;
+        right:0;
+        background:#fff;
+        z-index: 200;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        line-height: 30px;;
+
+    }
+
+}
