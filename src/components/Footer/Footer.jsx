@@ -8,7 +8,7 @@ const Footer = () => {
 
   
   return (
-    <footer class="container bottom-0">
+    <footer className="container bottom-0">
       <div className="flex items-center justify-evenly lg:mb-[100px] lg:mt-[200px]">
         <span><img src={logo}></img>Copyright Restricted  &copy; </span>
       </div>

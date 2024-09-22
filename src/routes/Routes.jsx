@@ -7,21 +7,17 @@ import {Login} from '../pages/Login'
 import Doctor from '../pages/Doctor/Doctor'
 import DoctorDetails from '../pages/Doctor/DoctorDetails'
 import Signup from '../pages/Signup'
-import { Router,Route, RouterProvider,createBrowserRouter } from 'react-router-dom'
+import { RouterProvider,createBrowserRouter } from 'react-router-dom'
+import MyAccount from '../Dashboard/userAccount/MyAccount.jsx'
+import Dashboard from '../Dashboard/doctorAccount/Dasboard.jsx'
+import ProtectedRoute from './ProtectedRoute.jsx'
 
 const Routes = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
-      // children: [
-      //   {
-      //     path: "home",
-      //     element: <Home />,
-      //   },
-        
-        
-      // ],
+      
     },
         {
           path: "/doctor",
@@ -47,7 +43,18 @@ const Routes = () => {
       {
         path:"/signup",
         element:<Signup/>
-      }
+      },
+      {
+        path:"/user/profile/me",
+        element:<ProtectedRoute allowedRoles={["patient"]}><MyAccount /></ProtectedRoute>
+      },
+      {
+        path:"/doctor/profile/me",
+        element:<ProtectedRoute allowedRoles={["doctor"]}><Dashboard /></ProtectedRoute>
+      },
+      
+      
+      
     
   ]);
   return (<>

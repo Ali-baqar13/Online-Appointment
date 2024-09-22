@@ -11,8 +11,14 @@ import Signup from './pages/Signup.jsx'
 import Doctor from './pages/Doctor/Doctor.jsx'
 import DoctorDetails from './pages/Doctor/DoctorDetails.jsx'
 import {Login }from './pages/Login.jsx'
-
+import "react-toastify/dist/ReactToastify.css"
+import Dashboard from './Dashboard/doctorAccount/Dasboard.jsx'
 import { RouterProvider,createBrowserRouter } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import { AuthContextProvider } from './context/AuthContext.jsx'
+import MyAccount from './Dashboard/userAccount/MyAccount.jsx'
+import ProtectedRoute from './routes/ProtectedRoute.jsx'
+
 
 const router=createBrowserRouter([
   {
@@ -47,7 +53,17 @@ const router=createBrowserRouter([
       {
         path:'login',
         element:<Login />
-      }
+      },
+      {
+        path:"/user/profile/me",
+        element:<ProtectedRoute allowedRoles={["patient"]}><MyAccount /></ProtectedRoute>
+      },
+      {
+        path:"/doctor/profile/me",
+        element:<ProtectedRoute allowedRoles={["doctor"]}><Dashboard /></ProtectedRoute>
+      },
+      
+      
     ]
   }
 ])
@@ -55,10 +71,12 @@ const router=createBrowserRouter([
 
 ReactDom.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthContextProvider>
+    <ToastContainer theme="dark" position='top-right' autoClose={3000} closeOnClick:true pauseOnHover:true/>
      
      <RouterProvider  router={router}/>
    
-   
+     </AuthContextProvider>
     
   </React.StrictMode>,
 )
