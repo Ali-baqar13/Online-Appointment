@@ -8,7 +8,7 @@ import { BsArrowRight } from 'react-icons/bs'
 const DoctorCard = ({doctor}) => {
 
 
-    const {name, avgRating, photo, specialty,totalRating ,totalPatients,hospital}=doctor
+    const {name, avgRating, photo, specialization,totalRating ,totalPatients,hospital}=doctor
 
   return (
     <div className='p-3 lg-p:5'>
@@ -17,7 +17,7 @@ const DoctorCard = ({doctor}) => {
         </div>
         <h2 className='text-[18px] leading-[30px] lg:text-[26px] lg:leading-9 text-headingColor font-[700] mt-3 lg:mt-3'>{name}</h2>
        <div className='mt-2 lg:mt-4 flex items-center justify-between'>
-        <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-2 lg:px-6 text -[12px] leading-4 lg:text-[16px] lg:leading-7 rounded font-semibold">{specialty}</span>
+        <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-2 lg:px-6 text -[12px] leading-4 lg:text-[16px] lg:leading-7 rounded font-semibold">{specialization}</span>
        
        <div className="container flex items-center gap-[6px] ">
         <span className=' flex items-center gap-[6px] text-[14px] leading-6 lg:text=[16px] lg:leading-6 font-semibold text-headingColor '><img src={startIcon}></img>{avgRating}  ({totalRating})</span>

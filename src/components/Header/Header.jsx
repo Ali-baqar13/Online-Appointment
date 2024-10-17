@@ -90,7 +90,7 @@ const Header = () => {
                 <Link
                   className="flex flex-col items-center"
                   to={`${
-                    role === "doctor"
+                    role === "Doctor"
                       ? "/doctor/profile/me"
                       : "/user/profile/me"
                   }`}

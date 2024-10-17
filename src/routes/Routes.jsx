@@ -50,7 +50,7 @@ const Routes = () => {
       },
       {
         path:"/doctor/profile/me",
-        element:<ProtectedRoute allowedRoles={["doctor"]}><Dashboard /></ProtectedRoute>
+        element:<ProtectedRoute allowedRoles={["patient"]}><Dashboard /></ProtectedRoute>
       },
       
       

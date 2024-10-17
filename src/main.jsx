@@ -60,7 +60,7 @@ const router=createBrowserRouter([
       },
       {
         path:"/doctor/profile/me",
-        element:<ProtectedRoute allowedRoles={["doctor"]}><Dashboard /></ProtectedRoute>
+        element:<Dashboard />
       },
       
       
