@@ -33,7 +33,7 @@ const Routes = () => {
         element: <Contact/>,
       },
       {
-        path:"/doctor/:id",
+        path:"/doctor/:doctorId",
         element:<DoctorDetails />
       },
       {

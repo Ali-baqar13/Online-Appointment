@@ -10,8 +10,8 @@ import DoctorAbout from "../../pages/Doctor/DoctorAbout";
 import Profile from "../Profile/Profile";
 import Appointment from "../Appointment/appointment";
 const Dasboard = () => {
-  const { data, loading, error } = customHook(`${BASE_URL}/doctor/profile/me`);
-  console.log(data);
+  const { data:doctor, loading, error } = customHook(`${BASE_URL}/doctor/profile/me`);
+
  
   const [tab, setTab] = useState("overview");
   return (
@@ -31,37 +31,37 @@ const Dasboard = () => {
                 <div>
                 <div className="flex items-center mb-10 h-full gap-3">
                   <figure className="max-w-[200px] mx-h-[200px]">
-                    <img src={data?.photo}></img>
+                    <img src={doctor?.photo}></img>
                   </figure>
                   <div>
                     <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-4 lg:py-2 lg:px-6 rounded-md text-[12px] leading-4 lg:text-[16px] lg:leading-6 font-semibold">
-                      {data.specialization}SURGEON
+                      {doctor.specialization}SURGEON
                     </span>
 
                     <h3 className="text-[22px] leading-9 font-bold text-headingColor mt-3">
-                      {data.name}
+                      {doctor.name}
                     </h3>
 
                     <div className="flex items-center gap-[6px]">
                       <span className="flex items-center gap-[6px] text-headingColor text-[14px] leading-5 lg:text-[16px] lg:leading-6 font-semibold">
-                        <img src={starIcon}></img>{data.averageRating}
+                        <img src={starIcon}></img>{doctor.averageRating}
                       </span>
                       <span className="flex items-center gap-[6px] text-headingColor text-[14px] leading-5 lg:text-[16px] lg:leading-6 font-semibold">
-                        ({data.totalRating})
+                        ({doctor.totalRating})
                       </span>
                     </div>
                     <p className="text__para font-[15px] leading-6 lg:max-w-[390px]">
-                     {data?.bio}
+                     {doctor?.bio}
                     </p>
                  
                   </div>
                   
                 </div>
-                <DoctorAbout/>
+                <DoctorAbout key={doctor._id} doctor={doctor}/>
                 </div>
               )}
-              {tab === "app" && <Profile doctorData={data}/>}
-              {tab === "setting" && <Appointment appointment={data.appointment}/>}
+              {tab === "app" && <Profile doctorData={doctor}/>}
+              {tab === "setting" && <Appointment appointment={doctor.appointment}/>}
             </div>
           </div>
         </div>

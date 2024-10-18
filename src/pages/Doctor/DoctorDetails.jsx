@@ -11,8 +11,10 @@ import { useParams } from "react-router-dom";
 
 const DoctorDetails = () => {
   const [tab, setTab] = useState("about");
-  const {id}=useParams()
-  const {data:doctor, loading, error}=customHook(`${BASE_URL}/doctor/${id}`)
+  const {doctorId}=useParams()
+  console.log("id",doctorId)
+  const {data:doctor, loading, error}=customHook(`${BASE_URL}/doctor/${doctorId}`)
+  console.log("doctor",doctor)
   const {name,photo,avgRating,totaRating,specialization}=doctor
 
   return (
@@ -70,7 +72,7 @@ const DoctorDetails = () => {
                 </button>
               </div>
               <div className="mt-[50px]">
-                {tab === "about" && <DoctorAbout />}
+                {tab === "about" && <DoctorAbout key={doctorId} doctor={doctor} />}
 
                 {tab === "feedback" && <Feedback  />}
               </div>

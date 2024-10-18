@@ -7,6 +7,7 @@ import Error from "../Error/Error.jsx"
 import Loader from "../../Loader/Loading.jsx"
 const DoctorList = () => {
   const {data:doctor, loading, error}=customHook(`${BASE_URL}/doctor`)
+  console.log("here is id.......",doctor._id)
  
   return (
     <>

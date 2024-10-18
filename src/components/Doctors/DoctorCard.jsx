@@ -1,16 +1,27 @@
 import React from 'react'
 
 import startIcon from '../../assets/images/Star.png'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { BsArrowRight } from 'react-icons/bs'
+import {BASE_URL} from "../../../config";
+import customHook from "../../hooks/customHook";
+import Error from "../Error/Error.jsx"
+import Loader from "../../Loader/Loading.jsx"
 
 
 const DoctorCard = ({doctor}) => {
+   const {id}=useParams()
+   console.log(id)
+   
+  
 
 
     const {name, avgRating, photo, specialization,totalRating ,totalPatients,hospital}=doctor
 
   return (
+    <>
+   
+
     <div className='p-3 lg-p:5'>
         <div >
             <img src={photo} alt='photo'></img>
@@ -32,7 +43,7 @@ const DoctorCard = ({doctor}) => {
           <h3 className='text-[16px]leading-7 lg:text-[18px] lg-leading-[30px] font-[600]'>+{totalPatients} patients</h3>
           <p className="text-[14px] leading-6 font-[400] text-textColor">At {hospital}</p>
         </div>
-        <Link to='/doctor/1' className='w-[44px] h-[44px] rounded-full border border-solid hover:bg-primaryColor border-[#181A1E]  mt-[30px] mx-auto flex items-center justify-center group hover:border-none'>
+        <Link to={`/doctor/${doctor._id}`} className='w-[44px] h-[44px] rounded-full border border-solid hover:bg-primaryColor border-[#181A1E]  mt-[30px] mx-auto flex items-center justify-center group hover:border-none'>
             
               <BsArrowRight className='group-hover:text-white w-6 h-5' />
             
@@ -42,6 +53,7 @@ const DoctorCard = ({doctor}) => {
 
        </div>
        </div>
+       </>
   )
 }
 
