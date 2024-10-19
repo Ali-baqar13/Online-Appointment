@@ -15,7 +15,7 @@ const DoctorDetails = () => {
   console.log("id",doctorId)
   const {data:doctor, loading, error}=customHook(`${BASE_URL}/doctor/${doctorId}`)
   console.log("doctor",doctor)
-  const {name,photo,avgRating,totaRating,specialization}=doctor
+  const {name,photo,avgRating,totalRating,specialization,reviews}=doctor
 
   return (
     <>
@@ -41,7 +41,7 @@ const DoctorDetails = () => {
                     <span className="text-[14px] leading-6 lg:text=[16px] lg:leading-6 font-semibold text-headingColor ">
                       <img src={startIcon}></img>{avgRating} 
                     </span>
-                    <span>({totaRating})</span>
+                    <span>({totalRating})</span>
                   </div>
                 </div>
               </div>
@@ -74,7 +74,7 @@ const DoctorDetails = () => {
               <div className="mt-[50px]">
                 {tab === "about" && <DoctorAbout key={doctorId} doctor={doctor} />}
 
-                {tab === "feedback" && <Feedback  />}
+                {tab === "feedback" && <Feedback reviews={reviews} totalRating={totalRating} />}
               </div>
             </div>
           </div>}
