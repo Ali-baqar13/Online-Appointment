@@ -15,7 +15,8 @@ const DoctorDetails = () => {
   console.log("id",doctorId)
   const {data:doctor, loading, error}=customHook(`${BASE_URL}/doctor/${doctorId}`)
   console.log("doctor",doctor)
-  const {name,photo,avgRating,totalRating,specialization,reviews}=doctor
+  const {name,photo,avgRating,totalRating,specialization, reviews}=doctor
+  console.log(specialization)
 
   return (
     <>

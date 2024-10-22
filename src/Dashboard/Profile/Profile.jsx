@@ -13,7 +13,7 @@ const Profile = ({ doctorData }) => {
     name: "",
     phone: "",
     gender: "",
-    specification: "",
+    specialization: "",
     ticket: 0,
     qualification: [
       { startingDate: "", endDate: "", university: "", degree: "" },
@@ -63,7 +63,7 @@ const Profile = ({ doctorData }) => {
       name: doctorData.name,
       phone: doctorData?.phone,
       gender: doctorData?.gender,
-      specification: doctorData?.specification,
+      specialization: doctorData?.specialization,
       ticket: doctorData?.ticket,
       qualification:doctorData?.qualification,
       exprience: doctorData?.exprience,
@@ -218,16 +218,16 @@ const Profile = ({ doctorData }) => {
                 </select>
               </div>
               <div>
-                <p className="form__label">specification</p>
+                <p className="form__label">specialization</p>
                 <select
-                  name="specification"
+                  name="specialization"
                   onChange={handleInputChange}
-                  value={formData?.specification}
+                  value={formData?.specialization}
                   className="w-full border placeholder:pl-[5px] border-solid border-black h-[50px]"
                 >
                   <option value="surgeon">Surgeon</option>
-                  <option value="neurologist">Neurologists</option>
-                  <option value="dermatologists">dermatologits</option>
+                  <option value="Neurologist">Neurologists</option>
+                  <option value="Nermatologists">Dermatologits</option>
                 </select>
               </div>
 

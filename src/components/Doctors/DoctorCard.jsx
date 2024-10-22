@@ -40,7 +40,7 @@ const DoctorCard = ({doctor}) => {
 
        <div className='mt-[18px] lg:mt-5 flex items-center justify-between '>
         <div>
-          <h3 className='text-[16px]leading-7 lg:text-[18px] lg-leading-[30px] font-[600]'>+{totalPatients} patients</h3>
+          <h3 className='text-[16px]leading-7 lg:text-[18px] lg-leading-[30px] font-[600]'>+{totalPatients}</h3>
           <p className="text-[14px] leading-6 font-[400] text-textColor">At {hospital}</p>
         </div>
         <Link to={`/doctor/${doctor._id}`} className='w-[44px] h-[44px] rounded-full border border-solid hover:bg-primaryColor border-[#181A1E]  mt-[30px] mx-auto flex items-center justify-center group hover:border-none'>
