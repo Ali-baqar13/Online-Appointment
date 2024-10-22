@@ -1,6 +1,7 @@
 import React from 'react'
 
 const DoctorAbout = ({doctor}) => {
+  console.log("data", doctor)
   
   return (
     <div >

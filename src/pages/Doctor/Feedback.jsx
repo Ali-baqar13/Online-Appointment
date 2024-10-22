@@ -5,6 +5,7 @@ import FeedbackForm from './FeedbackForm'
 const Feedback = ({totalRating,reviews}) => {
 
   const [showFeedbackForm, setShowFeedbackForm]=useState('')
+  console.log(reviews)
   return (
     <div>
 
@@ -14,7 +15,7 @@ const Feedback = ({totalRating,reviews}) => {
 
 <div className='flex flex-col'>
   <div className='flex gap-5 '>
-    <figure className='w-10 h-10 rounded-ful'><img src={review?.user?.photo} className='w-full'></img></figure>
+    <figure className='w-10 h-10 rounded-full'><img src={review?.user?.photo} className='w-full rounded-full'></img></figure>
    
     <h5 className='text-primaryColor font-bold text-[16px] leading-9'>{review?.user?.name}</h5>
     <p className='text-[14px] leading-9'>Sep-2024</p>
@@ -39,7 +40,7 @@ const Feedback = ({totalRating,reviews}) => {
             
           
           </div>}
-          {showFeedbackForm && <FeedbackForm/>}
+          {showFeedbackForm && <FeedbackForm />}
 
 
     </div>
